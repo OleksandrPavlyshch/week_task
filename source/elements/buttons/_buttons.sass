@@ -1,0 +1,108 @@
+.toggle-menu-button
+	+pseudo
+	display: none
+	width: 30px
+	height: 15px
+	cursor: pointer
+	background-color: transparent
+	border-top: 2px solid $melanzane
+	transition: all .3s ease
+	+max-screen($tablet)
+		display: inline-block
+	&:before,
+	&:after
+		border-top: 2px solid $melanzane
+		transition: all .3s ease
+	&:before
+		width: 15px
+		top: 6px
+		transform-origin: right top
+	&:after
+		width: 23px
+		top: 13px
+		transform-origin: left top
+	.is-menu-show &
+		border-top-color: $mountain-meadow
+		border-top-width: 2px
+		&:before,
+		&:after
+			border-top-color: $mountain-meadow
+			width: 50%
+			top: 0
+			border-top-width: 2px
+		&:before
+			transform: rotate(-45deg)
+		&:after
+			transform: rotate(45deg)
+			left: auto
+			right: 0
+
+.button
+	display: inline-block
+	position: relative
+	letter-spacing: 0
+	font-size: 20px
+	color: $white
+	border-radius: 5px
+	background-color: $mountain-meadow
+	padding: 0 60px
+	line-height: 50px
+	height: 50px
+	transition: opacity, box-shadow .45s cubic-bezier(0.25,1,0.33,1),transform .45s cubic-bezier(0.25,1,0.33,1)
+	&:hover
+		span
+			transform: translateX(16px)
+		i
+			transform: translateX(-3px)
+			opacity: 1
+	+max-screen($tablet)
+		span
+			transform: translateX(16px)
+		i
+			transform: translateX(-3px)
+			opacity: 1
+		&:hover
+			opacity: .9
+		&:active
+			box-shadow: inset 0 0 8px 2px rgba($black, .8)
+	span
+		left: 0px
+		display: inline-block
+		transform: translateX(0)
+		transition: opacity .45s cubic-bezier(0.25,1,0.33,1),transform .45s cubic-bezier(0.25,1,0.33,1)
+		position: relative
+	i
+		font-size: 30px
+		line-height: 20px
+		color: $white
+		width: 18px
+		position: absolute
+		top: 50%
+		left: 28px
+		margin-top: -9px
+		opacity: 0
+		transition: all .45s cubic-bezier(0.25,1,0.33,1)
+
+.send_button
+	@extend .button
+	padding: 0 40px
+	background-color: $turquoise
+	font-size: 22px
+	i
+		font-size: 22px
+		left: 28px
+	&:hover
+		span
+			transform: translateX(18px)
+		i
+			transform: translateX(-8px)
+			opacity: 1
+	+max-screen($tablet)
+		margin: 0 auto
+		display: block
+		padding: 0 60px
+		span
+			transform: translateX(13px) !important
+		i
+			transform: translateX(6px) !important
+			opacity: 1

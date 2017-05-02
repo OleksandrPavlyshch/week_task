@@ -1,0 +1,19 @@
+{
+	"title": "devchallenge.it task"
+	, "description": "devchallenge.it task"
+	, "meta_image": "#"
+	, "card": "summary"
+	, "autor": "me"
+	, "logo": {
+		"link": "banner"
+		, "text": ["coffee", "maker"]
+	}
+	, "menu": [
+		["program", "program"]
+		, ["gallery", "gallery"]
+		, ["reviews", "reviews"]
+		, ["partners", "partners"]
+		, ["contact", "contact"]
+	]
+	, "phone": "+38 (099) 66-11-730"
+}

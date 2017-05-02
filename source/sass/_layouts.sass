@@ -1,0 +1,128 @@
+// default layout
+
+.clearfix
+	*zoom: 1
+
+.clearfix:before,
+.clearfix:after
+	display: table
+	content: ""
+	line-height: 0
+
+.clearfix:after
+	clear: both
+
+a,
+a:before,
+.button,
+button,
+button:before,
+input[type="button"],
+input[type="submit"]
+	transition: border-color .1s ease-in, color .1s ease-in, background-color .1s ease-in
+
+%row
+	// overflow: hidden
+	max-width: $row+px
+	margin: 0 auto
+
+
+=grid($columns-amount: 12, $col-padding: 5, $column-name: "col-")
+	@for $i from 1 through $columns-amount
+		%#{$column-name}-#{$i}
+			width: (100%/$columns-amount)*$i
+			float: left
+			box-sizing: border-box
+			display: block
+			padding-left: $col-padding
+			padding-right: $col-padding
+			min-height: 1px
+			// &:first-child
+			// 	padding-left: 0
+		%#{$column-name}-offset-#{$i}
+			margin-left: (100%/$columns-amount)*$i
+
+
++grid($column-name: "col", $col-padding: 15px)
+
+
+// +max-screen($tablet)
+// 	%block
+// 		width: auto
+// 		float: none
+// 		padding-left: 0
+// 		padding-right: 0
+// 	%offset
+// 		margin-left: 0
+// 	@for $i from 1 through 12
+// 		%col-#{$i}
+// 			@extend %block
+// 		%col-offset-#{$i}
+// 			@extend %offset
+
++min-screen($tablet)
+	+grid($column-name: "col-md", $col-padding: 15px)
+
++min-screen($mobile)
+	+grid($column-name: "col-sm", $col-padding: 15px)
+
+.wow
+	visibility: hidden
+	
+.hide
+	display: none !important
+
+%flex-grid
+	max-width: $mdpi+px
+	margin: 0 auto
+	display: flex
+	flex-direction: column
+	> div
+		flex: 1
+		padding: 0 $col-padding
+
+%flex-grid-row
+	@extend %flex-grid
+	flex-direction: row
+
+
+%flex-grid-lg
+	@extend %flex-grid
+	+min-screen($mdpi)
+		flex-direction: row
+
+%flex-grid-md
+	@extend %flex-grid
+	+min-screen($tablet)
+		flex-direction: row
+
+%flex-grid-sm
+	@extend %flex-grid
+	+min-screen($mobile)
+		flex-direction: row
+
+.owl
+	&-item
+		float: left
+	&-stage-outer
+		overflow: hidden
+	&-nav
+		display: none
+	&-dots
+		text-align: center
+		margin-top: 50px
+	&-dot
+		display: inline-block
+		width: 10px
+		height: 10px
+		border-radius: 5px
+		background-color: $melanzane
+		opacity: .2
+		cursor: pointer
+		transition: all .45s cubic-bezier(0.25,1,0.33,1),transform .45s cubic-bezier(0.25,1,0.33,1)
+		&:hover,
+		&.active
+			background-color: $mountain-meadow
+			opacity: 1
+		& + &
+			margin-left: 8px
